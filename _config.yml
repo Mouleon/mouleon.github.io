@@ -4,6 +4,3 @@ title: oneNeko
 url: http://oneneko.github.io
 feed: /atom.xml
 author_info: <a href="http://oneneko.github.io">oneNeko</a>
-markdown:    redcarpet
-redcarpet:
-    extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
