@@ -567,3 +567,12 @@ li.L9 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.footer {
+  text-align: center;
+  line-height: 0;
+}
+.footer a{
+  color: #ccc;
+  font-size: 13px;
+  text-decoration: none;
+}
