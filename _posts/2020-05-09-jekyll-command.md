@@ -18,7 +18,7 @@ jekyll build --source <source> --destination <destination> #指定源文件夹<s
 jekyll build --watch #当前文件夹中的内容将会生成到./site文件夹中，
 # 查看改变，并且自动再生成。
 ```
-# 运行  
+## 运行  
 ```
 jekyll serve
 # 一个开发服务器将会运行在http://localhost:4000/
