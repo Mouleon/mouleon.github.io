@@ -15,7 +15,7 @@ category: blog
 ## 获取ssh key  
 根据前面的地址，访问id_rsa.pub文件,复制密钥  
 ## Github添加ssh key  
-Github - Setting - SSH and GPG keys - New SSH key  
+https://github.com/settings/keys   
 添加即可  
 ## 验证  
 执行`ssh -T git@github.com`  

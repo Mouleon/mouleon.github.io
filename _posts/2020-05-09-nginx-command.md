@@ -4,6 +4,7 @@ title: Nginx 常用命令
 description: Nginx 常用命令
 category: blog
 ---
+```
 sudo nginx #打开 nginx  
 nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx  
 nginx -t   #测试配置是否有语法错误  
@@ -19,3 +20,4 @@ nginx [-?hvVtq] [-s signal] [-c filename] [-p prefix] [-g directives]
 -p prefix       : 设置前缀路径（默认是：/usr/local/Cellar/nginx/1.2.6/）
 -c filename     : 设置配置文件（默认是：/usr/local/etc/nginx/nginx.conf）
 -g directives   : 设置配置文件外的全局指令  
+```

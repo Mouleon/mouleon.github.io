@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Ubuntu设置cron
-description: Ubuntu设置cron
+title: Ubuntu设置crontab
+description: Ubuntu设置crontab
 category: blog
 ---
-cron执行定时任务的服务，每个用户都会有自己的任务计划,ubuntu18.04  
+crontab执行定时任务的服务，每个用户都会有自己的任务计划,ubuntu18.04  
 ## 设置定时任务  
 执行`crontab -e`打开crontab  
 添加定时任务  
@@ -39,4 +39,12 @@ sudo service rsyslog  restart
 vi /var/log/cron.log
 ```  
 * 自定义输出  
-如`27 10 * * * /usr/bin/sh /opt/lyy/checkES.sh >>/opt/lyy/checkES.log 2>&1`
+如`27 10 * * * cd ~ && sysGithub >sysGithub.log`  
+## crontab执行时间  
+crontab执行时间与设置时间不一致，有可能是时区不对，设置一下时区=>{% for post in site.categories.blog %}{% if post.title=='Ubuntu设置时区'%}[{{post.title}}]({{post.url}}){% endif %}{% endfor %}  
+**注意** 时区设置完之后需要重启crontab服务  
+```
+启动:/etc/init.d/cron start ( service cron start )
+重启:/etc/init.d/cron restart ( service cron restart )
+关闭:/etc/init.d/cron stop ( service cron stop )
+```

@@ -7,9 +7,11 @@ layout: default
     <div class="aside">
       <div class="info-card">
         <h1>Mouleon</h1>
-        <a href="https://www.github.com/Mouleon/" target="_blank"><img src="https://www.github.com/favicon.ico" alt="" width="25"/></a>
+        <a href="https://www.github.com/Mouleon/" target="_blank"><img src="github.ico" alt="" width="25"/></a>
       </div>
-      <div id="particles-js"></div>
+      <div id="particles-js">
+        <div id="particles-top"></div>
+      </div>
     </div>
 
     <div class="index-content">

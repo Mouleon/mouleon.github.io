@@ -464,14 +464,28 @@ a.external:hover {
   -webkit-background-size: 20%;
   -moz-background-size: 20%;
   background-size: 20%;
+  background-size:cover;
   background-position: 50% 50%;
-  background: #38658c;
+  background-image: url(https://cdn.jsdelivr.net/gh/Mouleon/Bing_Wallpaper/today.jpg);
+/*  background: #38658c;
   background: -webkit-radial-gradient(top left, #5d3571, #38658c);
   background: -moz-radial-gradient(top left, #5d3571, #38658c);
   background: -o-radial-gradient(top left, #5d3571, #38658c);
   background: -ms-radial-gradient(top left, #5d3571, #38658c);
-  background: radial-gradient(to bottom right, #5d3571, #38658c);
+  background: radial-gradient(to bottom right, #5d3571, #38658c);*/
 }
+/*
+#particles-top{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  -webkit-background-size: 20%;
+  -moz-background-size: 20%;
+  background-position: 50% 50%;
+  background-color:#fff;
+  filter:Alpha(Opacity=60);
+  opacity:0.6;
+}*/
 #disqus_container {
   font-size: 12px;
 }
@@ -569,17 +583,31 @@ li.L9 {
   margin-bottom: 10px;
 }
 
+.post_nav{
+  height:10px;
+  border-top: solid #f5f5f5 2px;
+  margin: 0 auto;
+}
+.post-left{
+  margin-top: 10px;
+  float: left;
+}
+.post-right{
+  margin-top: 10px;
+  float:right;
+}
+
 .footer_contaniner{
-  width:100vw;
+  width:90vw;
   height:50px;
   border-top: solid #f5f5f5 2px;
   margin: 0 auto;
 }
 .footer_contaniner p{
-  padding-top: 12px;
+  padding-top: 8px;
   text-align: center;
   color: #757575;
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   margin: 0 auto;
 }
