@@ -5,7 +5,7 @@ url: http://mouleon.com
 feed: /atom.xml
 author_info: <a href="http://Mouleon.github.io">Mouleon</a>
 description: "Do not go gentle into that good night..."
-keywords: Mouleon'blog
+keywords: Mouleon,Blog,C++,Python,Python爬虫，博客
 since: 2019
 paginate: 10
 cdn: https://cdn.jsdelivr.net/gh/Mouleon/mouleon.github.io
