@@ -186,7 +186,16 @@ a.external:hover {
     margin-top: 70px;
   }
 }
-.index-wrapper .info-card h1 {
+.info-card h1 {
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 80px rgba(255,255,255,0.5);
+  letter-spacing: 0.15em;
+  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  text-shadow: rgba(255,255,255,0.5) 0 0 15px, rgba(255,255,255,0.5) 0 0 10px;
+}
+.index-wrapper h1 {
   font-size: 40px;
   color: #fff;
   margin-bottom: 20px;
@@ -381,7 +390,7 @@ a.external:hover {
 }
 .post-wrapper ol {
   margin-bottom: 25px;
-  margin-left: 25px;
+  margin-left: 3px;
 }
 .post-wrapper ol li {
   margin-bottom: 5px;
@@ -616,6 +625,10 @@ li.L9 {
   text-decoration: none;
 }
 
+
+@media screen and (max-width:900px){
+.header_wrapper{display:none; }
+}
 .header_wrapper{
   idth: 50vw;
   height: 50px;
@@ -629,34 +642,42 @@ li.L9 {
   margin: 0 auto;
   background: #fff;
 }
+.nav_brand{
+  width:14vw;
+}
+.nav_brand a{
+  float:left;
+  text-align: center;
+  width:7vw;
+  text-decoration: none;
+}
+.nav_brand a:hover{
+  color: cornflowerblue;
+  border-bottom: solid #757575 0px;
+}
 .nav_container div{
-  margin-top: 12px;
+  /*margin-top: 16px;*/
   display: inline;
+}
+.navbar_menu a:hover{
+  border-bottom: solid blue 1px;
+  margin: 0 auto;
 }
 .nav_container a{
   color:#757575;
   font-size: 16px;
   text-decoration: none;
-}
-.nav_brand{
-  width:14vw;
-}
-.nav_brand a{
-  margin-top: 12px;
-  float:left;
-  text-align: center;
-  width:8vw;
-  text-decoration: none;
+  height: 50px;
+  line-height: 50px;
 }
 .navbar_menu{
   float: right;
   width:45vw;
 }
 .navbar_menu a{
+  color:#757575;
   float:right;
   text-align: center;
   width:8vw;
-}
-.navbar_menu a:hover{
-  color: cornflowerblue;
+  height: 50px;
 }

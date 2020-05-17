@@ -32,16 +32,16 @@ a,b,c 表示第a,b,c[m,h,d]执行一次
 `*/20 9-17 * 5 * [command] #5月每天9-17时每隔20分钟执行一次`  
 `0 9-17/2 * * 1-5 [command] #周一到周五9-17时每隔两小时执行一次`  
 ## 开启crontab日志  
-* 使用cron日志
+使用cron日志
 ```
 sudo vim /etc/rsyslog.d/50-default.conf
 sudo service rsyslog  restart
 vi /var/log/cron.log
 ```  
-* 自定义输出  
+自定义输出  
 如`27 10 * * * cd ~ && sysGithub >sysGithub.log`  
 ## crontab执行时间  
-crontab执行时间与设置时间不一致，有可能是时区不对，设置一下时区=>{% for post in site.categories.blog %}{% if post.title=='Ubuntu设置时区'%}[{{post.title}}]({{post.url}}){% endif %}{% endfor %}  
+crontab执行时间与设置时间不一致，有可能是时区不对，设置一下时区=>[Ubuntu设置时区](/ubuntu-set-timezone.html)  
 **注意** 时区设置完之后需要重启crontab服务  
 ```
 启动:/etc/init.d/cron start ( service cron start )

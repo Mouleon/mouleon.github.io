@@ -67,4 +67,5 @@ layout: default
       </ul>
     </div>
   </div>
+  {% include footer.html %}
 </body>
