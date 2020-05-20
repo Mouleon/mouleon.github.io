@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 数据库基本语句
-description: 数据库的一些基本语句
+title: 数据库常用语句
+description: 数据库的一些常用语句
 category: blog
 ---
 ## 增加  
