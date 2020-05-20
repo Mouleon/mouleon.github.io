@@ -7,8 +7,6 @@ author_info: <a href="http://Mouleon.github.io">Mouleon</a>
 description: "Do not go gentle into that good night..."
 keywords: Mouleon,Blog,C++,Python,Python爬虫，博客
 
-kramdown:
-  input: GFM
 highlighter: Rouge
 since: 2019
 

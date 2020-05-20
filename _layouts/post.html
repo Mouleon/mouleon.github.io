@@ -1,16 +1,53 @@
 ---
 layout: default
 ---
-
 <body class="body-post">
   <div class="post-wrapper">
+    <div id="toc"></div>
     <h1 class="post-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
     <p class="post-date">{{ page.date|date:"%Y-%m-%d" }}</p>
     {{ content }}
+
     <div class="post_nav">
       <p class="post-left">上一篇 <a href="{{page.previous.url}}" title="{{page.previous.title}}">{{page.previous.title}}</a></p>
       <p class="post-right">下一篇 <a href="{{page.next.url}}" title="{{page.next.title}}">{{page.next.title}}</a></p>
     </div>
   </div>
+  <div id="return-top" class="top_e">
+  <img src="/images/site/top.png" width="30" id="img" >
+    <div style="width:60px;margin:auto;">
+        <p id='font' style="font-size:20px;margin-left:10px;display:none;">返回<br>顶部</p>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(window).scroll(function(){
+         if($(window).scrollTop()>300 && $(window).width()>900){
+             $('#return-top').fadeIn(300);
+             }
+          else{$('#return-top').fadeOut(200);}
+              })
+
+
+          // 点击按钮，使得页面返回顶部
+          $("#return-top").click(function(){
+           $('html,body').animate({scrollTop:0},500);
+          });
+          /*// 鼠标悬浮按钮之上，图片消失，文字显示
+          $(".top_e").mouseover(function(){
+           $("#img").hide();
+           $("#font").show();
+          })
+          //鼠标离开，文字消失，图片显示。
+          $(".top_e").mouseout(function(){
+           $("#font").hide();
+           $("#img").show();
+          })*/
+  </script>
+
+  <script src="/js/toc.js" type="text/javascript">
+  $(document).ready(function() {
+      $('#toc').toc();
+  });
+  </script>
   {% include footer.html %}
 </body>
