@@ -1,0 +1,16 @@
+<ul id="_toc">
+  <script src="js/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript">
+    if(!window.jQuery) {
+      document.write('<script src="{{ "/js/jquery-1.7.1.min.js" | prepend: site.baseurl }}"><\/script>')
+    }
+  </script>
+  <script src='{{ "/js/toc.js" | prepend: site.baseurl }}'></script>
+  <script>
+    let tags = {%if include.tags%}"{{include.tags}}"{%else%}"H1,H2,H3,H4"{%endif%};
+    let ignore = {%if include.ignore%}"{{include.ignore}}"{%else%}''{%endif%};
+    $(document).ready(function () {
+      toc($("#_toc"), tags, ignore);
+    });
+  </script>
+</ul>

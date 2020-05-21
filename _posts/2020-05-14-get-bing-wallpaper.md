@@ -54,5 +54,3 @@ if __name__ == "__main__":
     get_wallpaper()
 
 ```  
-## 其他方式
-你也可以直接访问我的[Bing壁纸](https://github.com/Mouleon/Bing_Wallpaper),里面有完整的项目，会保存每天的壁纸，每天都会更新
