@@ -1,11 +1,11 @@
 <ul id="_toc">
-  <script src="js/jquery-1.7.1.min.js"></script>
+  <script src="https://libs.baidu.com/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     if(!window.jQuery) {
-      document.write('<script src="{{ "/js/jquery-1.7.1.min.js" | prepend: site.baseurl }}"><\/script>')
+      document.write('<script src="https://libs.baidu.com/jquery/1.7.1/jquery.min.js" | prepend: site.baseurl }}"><\/script>')
     }
   </script>
-  <script src='{{ "/js/toc.js" | prepend: site.baseurl }}'></script>
+  <script src='{{ "{{site.cdn}}/js/toc.js" | prepend: site.baseurl }}'></script>
   <script>
     let tags = {%if include.tags%}"{{include.tags}}"{%else%}"H1,H2,H3,H4"{%endif%};
     let ignore = {%if include.ignore%}"{{include.ignore}}"{%else%}''{%endif%};
