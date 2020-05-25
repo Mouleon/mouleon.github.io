@@ -7,7 +7,7 @@
   </script>
   <script src="{{site.cdn}}/js/toc.js"></script>
   <script>
-    let tags = {%if include.tags%}"{{include.tags}}"{%else%}"H1,H2,H3,H4"{%endif%};
+    let tags = {%if include.tags%}"{{include.tags}}"{%else%}"H1,H2"{%endif%};
     let ignore = {%if include.ignore%}"{{include.ignore}}"{%else%}''{%endif%};
     $(document).ready(function () {
       toc($("#_toc"), tags, ignore);

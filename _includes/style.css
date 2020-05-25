@@ -306,35 +306,86 @@ a.external:hover {
     margin-bottom: 40px;
   }
 }
+
+em{font-style: italic;}
+strong { font-weight: bold; }
+del{font-style: normal;}
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    border-left: none;
+    word-break: break-word;
+}
+table {
+    border-collapse: collapse;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+table th {
+    font-weight: bold;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table td,th {
+    padding: 8px;
+    border: 1px solid #eee;
+    line-height: 20px;
+    vertical-align: middle;
+}
 .post-wrapper h2 {
-  font-size: 22px;
+  font-size: 1.6em;
   font-weight: bold;
   margin-bottom: 25px;
+  padding-bottom: 10px;
   border-bottom: 2px solid #eee;
+}
+.post-wrapper h3{
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 25px;
   padding-bottom: 10px;
 }
+.post-wrapper h4{
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+.post-wrapper h5{
+  font-size: 1.0em;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+.post-wrapper h6{
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+
 @media $mobiel {
   .post-wrapper h2 {
     font-size: 20px;
   }
 }
-.post-wrapper h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  color: #222;
-}
 @media screen and (max-width: 767px) {
   .post-wrapper h3 {
     font-size: 16px;
   }
-}
-.post-wrapper h4,
-.post-wrapper h5,
-.post-wrapper h6 {
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 15px;
 }
 .post-wrapper p {
   margin-bottom: 40px;
@@ -404,9 +455,14 @@ a.external:hover {
   }
 }
 .post-wrapper blockquote {
-  margin-left: 25px;
+  margin-left: 30px;
   font-size: 14px;
-  font-style: italic;
+  background: #f2f2f2;
+  border-left: 6px solid #b3b3b3;
+}
+.post-wrapper blockquote p{
+  margin-left: 15px;
+  font-size: 14px;
 }
 .post-wrapper img {
   max-width: 670px;
@@ -475,7 +531,7 @@ a.external:hover {
   background-size: 20%;
   background-size:cover;
   background-position: 50% 50%;
-  background-image: url(https://api.mouleon.com/bing.html);
+  background-image: url(https://congm.in/bing.php);
 /*  background: #38658c;
   background: -webkit-radial-gradient(top left, #5d3571, #38658c);
   background: -moz-radial-gradient(top left, #5d3571, #38658c);
