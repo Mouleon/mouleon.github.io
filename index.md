@@ -2,14 +2,25 @@
 layout: default
 ---
 <script>
-    var xmlhttp;
-    xmlhttp=new XMLHttpRequest();
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-        $('#particles-js').css({ 'background-image': "url("+xmlhttp.responseText+")"});
-    }
-    xmlhttp.open("POST","https://api.mouleon.com/bing",true);
-    xmlhttp.send();
+	var uri='';
+  var aj = $.ajax( {    
+    url:'/bing',// 跳转到 action    
+    data:{    
+        uri : uri    
+    },    
+    type:'get',    
+    cache:false,    
+    dataType:'json',    
+    success:function(data) {    
+         var jsonObj = data;
+	console.log(data.uri);
+	$('#particles-js').css({ 'background-image': "url("+jsonObj.uri+")"});   
+     },    
+     error : function() {    
+          // view("异常！");    
+          console.log("error");
+     }    
+  });
 </script>
 <body>
   <div class="index-wrapper">
