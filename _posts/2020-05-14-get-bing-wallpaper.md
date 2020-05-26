@@ -2,7 +2,7 @@
 layout: post
 title: 获取Bing必应首页壁纸
 description: 获取Bing必应首页的壁纸
-category: python
+category: Python
 ---
 [Bing首页](https://www.bing.com)的壁纸质量很高，而且每天都会更换，但是如果手动下载的话比较麻烦，而且只能获取前7天到当天的壁纸，所以我们可以写一个爬虫来帮我们下载壁纸  <!-- more -->
 ## 获取壁纸地址  

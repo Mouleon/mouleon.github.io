@@ -2,7 +2,7 @@
 layout: post
 title: Nginx 常用命令
 description: Nginx 常用命令
-category: nginx
+category: [后端,Nginx]
 ---
 ```
 sudo nginx #打开 nginx  

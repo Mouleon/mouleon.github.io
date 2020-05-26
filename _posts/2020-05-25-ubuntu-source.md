@@ -1,9 +1,10 @@
 ---
 layout: post
-title: ubuntu更换国内源
-description: ubuntu更换国内源
-category: ubuntu
+title: Ubuntu更换国内源
+description: Ubuntu更换国内源
+category: Ubuntu
 ---
+由于Ubuntu默认的源在国外，有的时候国内访问速度会很慢，所以我们可以切换成国内的源
 打开/etc/apt/sources.list
 ```
 vi /etc/apt/sources.list

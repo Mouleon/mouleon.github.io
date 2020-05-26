@@ -1,5 +1,5 @@
 ---
-layout: page
+layout:
 ---
 {% include header.html %}
 {% include nav.html %}
@@ -8,18 +8,18 @@ layout: page
     width: 850px;">
   <div class="list-category">
     <h2>所有分类</h2>
-    <div>
-      {% for category in site.categories %}
-      <a href="javascript:document.getElementById('{{ category[0] }}').scrollIntoView()">{{ category[0] }}</a>
+    <div class="category-summary">
+      {% for category in site.categories reversed %}
+      <a href="javascript:document.getElementById('{{ category[0] }}').scrollIntoView({behavior: 'smooth'})">{{ category[0] }}</a>
       {% endfor %}
     </div>
   </div>
-  {% for category in site.categories %}
+  {% for category in site.categories reversed%}
   <div class="list-post">
     <h2 id="{{ category[0] }}">{{ category[0] }}</h2>
     <ul>
       {% for post in category[1] %}
-      <li>
+      <li class="list-detail">
         <span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
         <a href="{{ site.baseurl | append: post.url }}" class="title hover-underline">{{ post.title }}</a>
       </li>
@@ -28,3 +28,5 @@ layout: page
   </div>
   {% endfor %}
 </div>
+{% include returnTop.html %}
+{% include footer.html %}

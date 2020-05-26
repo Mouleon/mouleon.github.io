@@ -1,0 +1,17 @@
+<div id="return-top" class="top_e">
+<img src="{{site.cdn}}/images/site/top.png" width="30" id="img" >
+  <div style="width:60px;margin:auto;">
+      <p id='font' style="font-size:20px;margin-left:10px;display:none;">返回<br>顶部</p>
+  </div>
+</div>
+<script type="text/javascript">
+  $(window).scroll(function(){
+       if($(window).scrollTop()>300 && $(window).width()>900){
+           $('#return-top').fadeIn(300);
+           }
+        else{$('#return-top').fadeOut(200);}
+            })
+        $("#return-top").click(function(){
+         $('html,body').animate({scrollTop:0},500);
+        });
+</script>

@@ -742,7 +742,7 @@ li.L9 {
   right:45px;
   bottom:150px;
   #background:rgba(204,200,255,0.6);
-  border-radius:15px;
+  border-radius:5px;
   cursor:pointer;
   display:none;
   width:30px;
@@ -866,6 +866,18 @@ a.title.hover-underline {
     margin-left: 15px;
     padding: 12px 0;
 }
-li {
+a.title.hover-underline:hover{
+    color:cornflowerblue;
+    margin-left: 15px;
     padding: 12px 0;
+}
+li.list-detail {
+    padding: 12px 0;
+}
+div.category-summary a{
+  color: #666;
+    margin-right: 1em;
+    border-bottom: 1px solid #666;
+    margin-top: 0.8em;
+    display: inline-block;
 }

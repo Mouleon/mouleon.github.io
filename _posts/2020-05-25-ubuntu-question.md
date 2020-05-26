@@ -2,7 +2,7 @@
 layout: post
 title: ubuntu使用时遇到的一些问题
 description: ubuntu使用时遇到的一些问题
-category: ubuntu
+category: Ubuntu
 ---
 ## python3安装multiprocessing时出错  
 在使用pip3安装multiprocessing,使用`pip3 install multiprocessing`报`print`错误

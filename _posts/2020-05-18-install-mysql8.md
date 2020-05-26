@@ -2,7 +2,7 @@
 layout: post
 title: Windows和Ubuntu安装MySQL8.0
 description: Windows和Ubuntu安装MySQL8.0
-category: [ubuntu,mysql]
+category: [Ubuntu,MySQL,数据库]
 ---
 Windows 10 和 Ubuntu18.04 下安装 MySQL8.0  
 ##  Windows10

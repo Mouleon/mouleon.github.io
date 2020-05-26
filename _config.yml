@@ -9,8 +9,9 @@ keywords: Mouleon,Blog,C++,Python,Python爬虫，博客
 
 gems: [jekyll-paginate]
 plugins_dir: [jekyll-paginate]
-paginate: 5
+paginate: 10
 paginate_path: "page/:num/"
+plugins: [jekyll-paginate]
 
 highlighter: Rouge
 since: 2019
