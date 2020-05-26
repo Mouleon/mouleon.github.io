@@ -1,7 +1,16 @@
 ---
 layout: default
 ---
-
+<script>
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        $('#particles-js').css({ 'background-image': "url("+xmlhttp.responseText+")"});
+    }
+    xmlhttp.open("POST","https://api.mouleon.com/bing",true);
+    xmlhttp.send();
+</script>
 <body>
   <div class="index-wrapper">
     <div class="aside">
@@ -12,7 +21,6 @@ layout: default
       <div id="particles-js">
         <div id="particles-top"></div>
       </div>
-
     </div>
 
     <div class="index-content">
