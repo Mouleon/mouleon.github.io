@@ -2,7 +2,7 @@
 layout: post
 title: Ubuntu设置时区
 description: Ubuntu设置时区
-category: blog
+category: ubuntu
 ---
 系统：ubuntu18.04  
 输入`date`可以查看时间、时区  

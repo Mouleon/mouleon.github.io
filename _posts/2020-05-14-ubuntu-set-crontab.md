@@ -2,7 +2,7 @@
 layout: post
 title: Ubuntu设置crontab
 description: Ubuntu设置crontab
-category: blog
+category: ubuntu
 ---
 crontab执行定时任务的服务，每个用户都会有自己的任务计划,ubuntu18.04  
 ## 设置定时任务  

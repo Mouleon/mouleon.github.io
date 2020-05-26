@@ -2,7 +2,7 @@
 layout: post
 title: Jekyll遇到的问题汇总
 description: Jekyll遇到的问题汇总
-category: blog
+category: Jekyll
 ---
 ## 本地运行无法使用redcarpet
 在`_config.yml`里将markdown解析器设为`redcarpet`，出现

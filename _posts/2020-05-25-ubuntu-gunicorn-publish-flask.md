@@ -2,10 +2,12 @@
 layout: post
 title: ubuntu使用gunicorn部署flask
 description: ubuntu使用gunicorn部署flask
-category: blog
+category: [ubuntu,python,gunicorn,flask]
 ---
 ## 安装
+```
 
+```
 ## 部署
 ### 命令行启动
 最简`gunicorn main:app`  

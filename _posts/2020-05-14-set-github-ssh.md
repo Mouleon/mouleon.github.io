@@ -2,7 +2,7 @@
 layout: post
 title: 设置ssh key访问Github仓库
 description: 设置ssh key访问Github仓库
-category: blog
+category: git
 ---
 ## 查看是否存在ssh key  
 执行

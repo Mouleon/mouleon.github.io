@@ -2,7 +2,7 @@
 layout: post
 title: jekyll基本命令
 description: jekyll基本命令
-category: blog
+category: jekyll
 ---
 ## 从0新建jekyll  
 ```

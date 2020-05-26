@@ -2,7 +2,7 @@
 layout: post
 title: ubuntu更换国内源
 description: ubuntu更换国内源
-category: blog
+category: ubuntu
 ---
 打开/etc/apt/sources.list
 ```

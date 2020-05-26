@@ -2,7 +2,7 @@
 layout: post
 title: 数据库常用语句
 description: 数据库的一些常用语句
-category: blog
+category: database
 ---
 ## 增加  
 建立数据库

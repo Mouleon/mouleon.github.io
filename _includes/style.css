@@ -346,9 +346,9 @@ table td,th {
     vertical-align: middle;
 }
 .post-wrapper h2 {
-  font-size: 1.6em;
+  font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #eee;
 }
@@ -793,4 +793,79 @@ a#toc3 {
 }
 @media screen and (max-width:1200px){
   #_toc{display:none; }
+}
+
+div.category-list{
+  margin: 0 auto;
+  width:600px;
+}
+div.category{
+  margin-top: 20px;
+}
+div.category h2{
+  width: 300px;
+  font-size: 1.8em;
+}
+div.cat-head{
+  width:600px;
+}
+div.arc-list li{
+  margin-top: 14px;
+  list-style: none;
+}
+
+// ------------------------------
+// PAGINATION
+// ------------------------------
+
+.pagination {
+  display: block;
+  margin: 0 0 4em 0;
+}
+
+  .pagination__page-number {
+    margin: 0;
+    font-size: .8em;
+    color: $gray-dark;
+  }
+
+  .pagination__newer {
+    margin-right: 1em;
+  }
+
+  .pagination__older {
+    margin-left: 1em;
+  }
+
+  nav.pagination {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+// ------------------------------
+// categories
+// ------------------------------
+
+
+.categoriesbody {
+    margin: 0 auto;
+    width: 700px;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 0;
+}
+
+span.date{
+  color:#666666;
+}
+a.title.hover-underline {
+    color: #444444;
+    margin-left: 15px;
+    padding: 12px 0;
+}
+li {
+    padding: 12px 0;
 }
