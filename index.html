@@ -2,7 +2,7 @@
 layout: default
 title: 首页
 ---
-<script>
+<!--<script>
 	var uri='';
   var aj = $.ajax( {
     url:'/bing',// 跳转到 action
@@ -22,7 +22,7 @@ title: 首页
           console.log("error");
      }
   });
-</script>
+</script>-->
 <body>
   <div class="index-wrapper">
     <div class="aside">
@@ -34,7 +34,6 @@ title: 首页
         <div id="particles-top"></div>
       </div>
     </div>
-
     <div class="index-content">
       <ul class="artical-list">
         {% for post in paginator.posts %}
@@ -45,12 +44,7 @@ title: 首页
         {% endfor %}
 				{%  include pagination.html %}
       </ul>
-
-
     </div>
   </div>
-
-
-
   {% include footer.html %}
 </body>
