@@ -10,8 +10,8 @@ layout: default
     {{ content }}
 
     <div class="post_nav">
-      <p class="post-left">上一篇 <a href="{{page.previous.url}}" title="{{page.previous.title}}">{{page.previous.title}}</a></p>
-      <p class="post-right">下一篇 <a href="{{page.next.url}}" title="{{page.next.title}}">{{page.next.title}}</a></p>
+      <p class="post-left">上一篇 <a href="{{page.next.url}}" title="{{page.next.title}}">{{page.next.title}}</a></p>
+      <p class="post-right">下一篇 <a href="{{page.previous.url}}" title="{{page.previous.title}}">{{page.previous.title}}</a></p>
     </div>
   </div>
   {% include returnTop.html %}
