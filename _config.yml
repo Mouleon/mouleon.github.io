@@ -1,4 +1,4 @@
-permalink: /:year/:month/:day/:title.html
+permalink: /:title.html
 
 title: Mouleon
 url: http://mouleon.com

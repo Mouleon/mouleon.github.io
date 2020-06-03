@@ -4,6 +4,7 @@ title: 数据库常用语句
 description: 数据库的一些常用语句
 category: 数据库
 ---
+
 ## 增加  
 建立数据库
 `create database 库名;`  

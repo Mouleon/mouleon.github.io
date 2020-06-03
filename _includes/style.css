@@ -86,6 +86,9 @@ td {
   font-weight: normal;
   vertical-align: middle;
 }
+.list-category {
+    margin-bottom: 20px;
+}
 a img {
   border: none;
 }
