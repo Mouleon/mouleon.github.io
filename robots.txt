@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: 
-Sitemap: https://mouleon.com/sitemap.xml
-Sitemap: https://mouleon.com/sitemap.html
+Disallow:
+Sitemap: https://mouleon.com/static/xml/sitemap.xml

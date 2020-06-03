@@ -1,8 +1,8 @@
 ---
 layout: post
-title: opencv4 32位编译
-description: opencv4 32位编译
-category: [C++,opencv]
+title: OpenCV4 32位编译
+description: OpenCV4 32位编译
+category: [C++,OpenCV]
 ---
 ## 下载安装
 访问官网[https://opencv.org/releases/](https://opencv.org/releases/)，下载相应的安装包，我这里是windows。  

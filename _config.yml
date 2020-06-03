@@ -1,4 +1,4 @@
-permalink: /:title.html
+permalink: /:year/:month/:day/:title.html
 
 title: Mouleon
 url: http://mouleon.com
@@ -7,15 +7,12 @@ author_info: <a href="http://Mouleon.github.io">Mouleon</a>
 description: "Mouleon的个人博客"
 keywords: 算法,C++,Python,Python爬虫,Mouleon,Blog,博客
 
-gems: [jekyll-paginate,jekyll-admin]
-plugins_dir: [jekyll-paginate,jekyll-admin]
 paginate: 10
 paginate_path: "page/:num/"
-plugins: [jekyll-paginate,jekyll-admin]
+plugins: [jekyll-paginate]
 
 highlighter: Rouge
 since: 2019
 
 cdn: https://cdn.jsdelivr.net/gh/Mouleon/mouleon.github.io
 excerpt_separator:  '<!-- more -->'
-categories: blog,jekyll,database,mysql,ubuntu
