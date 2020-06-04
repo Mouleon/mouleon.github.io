@@ -4,7 +4,7 @@ title: Mouleon
 url: http://mouleon.com
 feed: /atom.xml
 author_info: <a href="http://Mouleon.github.io">Mouleon</a>
-description: "Mouleon的个人博客"
+description: "嗨，我是Mouleon，一名C++开发者，有时也会用Python鼓捣一些有趣的东西..."
 keywords: 算法,C++,Python,Python爬虫,Mouleon,Blog,博客
 
 paginate: 10
