@@ -68,12 +68,11 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '你的密码';
 ```
 sudo apt-get install mysql-server
 sudo apt-get install mysql-client
-sudo apt-get install libmysqlclient-dev
 ```
 我安装时并没有配置密码，还需要修改默认密码  
 ### 修改默认密码
-`sudo cat /etc/mysql/debian.cnf`  
-[!img]({{site.cdn}}/image/202005201228.jpg)  
+`sudo vi /etc/mysql/debian.cnf`  
+[!img]({{site.cdn}}/static/image/2020/05/202005201228.jpg)  
 使用里面的默认用户和密码登录MySQL  
 `mysql -u debian-sys-maint -p`  
 修改密码  

@@ -4,7 +4,7 @@ title: Ubuntu使用Gunicorn部署Flask
 description: Ubuntu使用gunicorn部署Flask
 category: [Ubuntu,Python,Gunicorn,Flask,建站]
 ---
-Flask是一个使用Python编写的轻量级Web应用框架，很适合用于快速开发，但是其生产环境不够稳定，无法承受大量请求的并发，所以需要使用Web服务来处理各种请求，如Gunicorn、Nginx或Apache，而且为了提高性能，常常会使用Nginx和Gunicorn的组合方式，分别处理不同的资源。
+Flask是一个使用Python编写的轻量级Web应用框架，很适合用于快速开发，但是其生产环境不够稳定，无法承受大量请求的并发，所以需要使用Web服务来处理各种请求，如Gunicorn、Nginx或Apache，而且为了提高性能，常常会使用Nginx和Gunicorn的组合方式，分别处理不同的资源。  
 ## 安装
 ```
 pip3 install gunicorn
