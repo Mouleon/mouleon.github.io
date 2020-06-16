@@ -76,6 +76,16 @@ sudo apt-get install mysql-client
 使用里面的默认用户和密码登录MySQL  
 `mysql -u debian-sys-maint -p`  
 修改密码  
+第一个是将身份验证方法从更改auth_socket为mysql_native_password。您可以通过运行以下命令来做到这一点：
+```
+mysql > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'very_strong_password';
+mysql > FLUSH PRIVILEGES;
+```
+推荐的第二个选项是创建一个新的专用管理用户，该用户可以访问所有数据库：
+```
+GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'localhost' IDENTIFIED BY 'very_strong_password';
+```
+下面这种已失效，mysql8高版本修改了密码验证方式
 ```
 use mysql;
 update mysql.user set authentication_string=password('你的密码') where user='root' and Host ='localhost';
@@ -84,3 +94,17 @@ flush privileges;
 quit;
 ```
 Ubuntu安装MySQL完成
+## 完全卸载mysql
+删除mysql的数据文件
+```
+sudo rm /var/lib/mysql/ -R
+```  
+删除mysql的配置文件
+```
+sudo rm /etc/mysql/ -R
+```  
+自动卸载mysql（包括server和client）
+```
+sudo apt-get autoremove mysql* --purge
+sudo apt-get remove apparmor
+```
