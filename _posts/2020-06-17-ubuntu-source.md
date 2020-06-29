@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Ubuntu更换国内源
-description: Ubuntu更换国内源
-category: Ubuntu
+title: 开发环境更换国内源
+description: 开发环境更换国内源
+category: [技巧]
 ---
-由于Ubuntu默认的源在国外，有的时候国内访问速度会很慢，所以我们可以切换成国内的源
+由于很多安装的源在国外，国内访问速度很慢，所以在国内可以切换到国内的镜像源来提高访问下载速度
+## ubuntu 源
 打开/etc/apt/sources.list
 ```
 vi /etc/apt/sources.list
@@ -54,4 +55,20 @@ deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted univ
 ```
 apt update
 apt upgrade
+```
+## Python源
+在Linux系统中，修改`~/.pip/pip.conf`文件；在Windows系统中，修改`C:\Users\XXX\pip\pip.ini`文件。如果没有上述文件，需要手动建立。  
+常用的国内源有：
+```
+清华：https://pypi.tuna.tsinghua.edu.cn/simple
+阿里云：https://mirrors.aliyun.com/pypi/simple/
+中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+豆瓣：https://pypi.douban.com/simple/
+```
+在文件中输入以下内容：
+```
+[global]
+index-url = https://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host = mirrors.aliyun.com
 ```
