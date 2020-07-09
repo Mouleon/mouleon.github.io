@@ -5,7 +5,21 @@
     </div>
     <div class="navbar_menu">
       <a class="navbar-item" id="nav_about" href="/about.html">关于</a>
-      <a class="navbar-item" id="nav_category" href="/Categories.html">归类</a>
+      <a class="navbar-item" id="nav_category" href="/Categories.html">分类</a>
     </div>
   </div>
 </div>
+<script>
+  var t = 0, b = 100;
+  $(window).scroll(function(){
+      t = $(this).scrollTop();
+      if(b < t){
+        $('.header_wrapper').slideUp();
+      }else{
+        $('.header_wrapper').slideDown();
+      }
+      setTimeout(function(){
+          b = t
+      }, 0)
+  })
+</script>

@@ -1,0 +1,14 @@
+---
+layout: post
+title: Ascend 310 算子
+description: Ascend 310 算子
+category: [API]
+---
+基于Ascend 310芯片的特点，要提升算法的性能，就要尽量提升Cube的使用效率，相应的需减小数据搬移和Vector运算的比例。  
+总体原则有以下几点。    
+    1.网络结构–推荐使用主流的网络拓扑，包括ResNet、MobileNet，性能已做过调优。–不推荐使用早期的网络拓扑，包括VGG、AlexNet，网络模型偏大，带宽压力大。–矩阵乘法的MKN，尽量取16的倍数。算法上可以考虑适当增加channel个数，而不是分group的方式减少channel数量。–增加数据复用率：一个参数的利用次数越多带宽的瓶颈越小，所以算法上可以考虑增加filter的复用次数，比如增加feature map大小，避免过大的stride或dilation。  
+    2.  Conv算子–非量化模式下，Conv的输入和输出通道数建议采用16的整数倍。–量化模式下，Conv的输入和输出通道数建议采用32的整数倍。–量化模式下，多个Conv算子之间，建议少插入Pooling算子。  
+    3.  FC（FullConnection）算子
+    Atlas 500应用软件开发指南9 高性能应用编程文档版本 02 (2019-10-30)版权所有 
+    
+    © 华为技术有限公司54

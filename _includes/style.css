@@ -141,11 +141,6 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   font-size: 15px;
 }
-@media screen and (max-width: 767px) {
-  body {
-    font-size: 14px;
-  }
-}
 a {
   color: cornflowerblue;
   text-decoration: none;
@@ -260,35 +255,36 @@ a.external:hover {
 }
 .body-post {
   background: #fff;
+  position: relative;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 700px) {
   .body-post {
     background: #fff;
   }
 }
 .post-wrapper {
-  width: 900px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 45px 60px;
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 100px 0px 40px 0px;
+    font-size: 14px;
 }
-@media screen and (max-width: 767px) {
-  .post-wrapper {
-    width: 85%;
-    margin: 100px auto 50px;
-    padding: 0;
+@media screen and (max-width: 700px){
+  .post-wrapper{
+    padding: 20% 15px 15px 15px;
+    width: 100%;
   }
 }
 .post-wrapper .post-title,
 .post-wrapper .post-title a {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 6px;
   color: #666;
   text-align: center;
   word-wrap: break-word;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 700px) {
   .post-wrapper .post-title,
   .post-wrapper .post-title a {
     font-size: 24px;
@@ -304,7 +300,7 @@ a.external:hover {
   margin-bottom: 60px;
   font-size: 14px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 700px) {
   .post-wrapper .post-date {
     margin-bottom: 40px;
   }
@@ -349,50 +345,20 @@ table td,th {
     vertical-align: middle;
 }
 .post-wrapper h2 {
-  font-size: 1.5em;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
-  padding-bottom: 10px;
   border-bottom: 2px solid #eee;
 }
-.post-wrapper h3{
-  font-size: 1.4em;
+.post-wrapper h3,h4,h5,h6{
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 25px;
-  padding-bottom: 10px;
-}
-.post-wrapper h4{
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
-}
-.post-wrapper h5{
-  font-size: 1.0em;
-  font-weight: bold;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
-}
-.post-wrapper h6{
-  font-size: 0.8em;
-  font-weight: bold;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
 }
 
-@media $mobiel {
-  .post-wrapper h2 {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .post-wrapper h3 {
-    font-size: 16px;
-  }
-}
 .post-wrapper p {
   margin-bottom: 40px;
-  line-height: 1.8em;
+  line-height: 2.8em;
 }
 .post-wrapper code {
   background: #f2f2f2;
@@ -665,9 +631,15 @@ li.L9 {
   float:right;
 }
 
+
+/* 页脚 */
+.footer-wrapper{
+  background-color: #fff;
+  height: 80px;
+  box-shadow: 5px 1px 0px rgb(0,0,0,0.1);
+}
 .footer_contaniner{
-  width:90vw;
-  height:50px;
+  width:100%;
   border-top: solid #f5f5f5 2px;
   margin: 0 auto;
 }
@@ -684,18 +656,16 @@ li.L9 {
   text-decoration: none;
 }
 
-
-@media screen and (max-width:900px){
-.header_wrapper{display:none; }
-}
+/* 导航 */
 .header_wrapper{
-  idth: 50vw;
+  width: 100%;
   height: 50px;
-  width:65vw;
   background-color: #fff;
-  border-bottom: solid #f5f5f5 2px;
   margin: 0 auto;
+  box-shadow: 0 1px 5px rgb(0,0,0,0.1);
+  position: fixed;
 }
+
 .nav_container{
   height: 36px;
   margin: 0 auto;
@@ -703,6 +673,11 @@ li.L9 {
 }
 .nav_brand{
   width:14vw;
+  
+}
+a#indexPage {
+  font-size: 22px;
+  margin-left: 5%;
 }
 .nav_brand a{
   float:left;
@@ -723,8 +698,8 @@ li.L9 {
   margin: 0 auto;
 }
 .nav_container a{
-  color:#757575;
-  font-size: 16px;
+  color:#111111;
+  font-size: 14px;
   text-decoration: none;
   height: 50px;
   line-height: 50px;
@@ -734,18 +709,18 @@ li.L9 {
   width:45vw;
 }
 .navbar_menu a{
-  color:#757575;
   float:right;
   text-align: center;
   width:8vw;
   height: 50px;
 }
 
+/* Top导航 */
 .top_e{
   position:fixed;
   right:45px;
   bottom:150px;
-  #background:rgba(204,200,255,0.6);
+  /*background:rgba(204,200,255,0.6);*/
   border-radius:5px;
   cursor:pointer;
   display:none;
@@ -757,37 +732,44 @@ li.L9 {
   background:#f5f5f5;
 }
 
-ul#_toc{
-  width: 180px;
-  float:right;
+/*目录*/
+ul#_toc {
+  width: 200px;
   position: fixed;
-  margin-left: 26px;
-  margin-top: 90px;
-  background-color: #fafafa;
+  right: 80px;
+  top: 80px;
+  font-size: 13px;
+  line-height: 26px;
 }
-ul#_toc ul{
-  line-height: 2.1em;
-}
+
 ul#_toc li{
-  line-height: 1.5em;
   color:#4a4a4a;
+  border-left: solid 1px #ccc;
+}
+a#toc0::before{
+  position: relative;
+  top: 0;
+  left: -14px;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  content: '';
+  border-radius: 50%;
+  background-color: #eb5055;
 }
 a#toc0 {
   margin-left: 10px;
-    font-size: 14px;
     color: #4a4a4a;
 }
 a#toc1 {
-    margin-left: 15px;
+    margin-left: 25px;
     margin-top: 15px;
     color: #4a4a4a;
-    font-size: 13px;
 }
 a#toc2 {
     margin-left: 15px;
     margin-top: 15px;
     color: #4a4a4a;
-    font-size: 12px;
 }
 a#toc3 {
     margin-left: 15px;
@@ -799,6 +781,7 @@ a#toc3 {
   #_toc{display:none; }
 }
 
+/* 分类 */
 div.category-list{
   margin: 0 auto;
   width:600px;
@@ -818,9 +801,7 @@ div.arc-list li{
   list-style: none;
 }
 
-// ------------------------------
-// PAGINATION
-// ------------------------------
+/* 上下页导航 */
 
 .pagination {
   display: block;
@@ -830,7 +811,7 @@ div.arc-list li{
   .pagination__page-number {
     margin: 0;
     font-size: .8em;
-    color: $gray-dark;
+    color: gray-dark;
   }
 
   .pagination__newer {
