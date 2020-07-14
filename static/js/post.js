@@ -21,7 +21,7 @@ $(function() {
         }
     });
 
-    $.getScript('https://cdn.jsdelivr.net/gh/Mouleon/mouleon.github.io/static/js/prettify/prettify.js',function(){
+    $.getScript('static/js/prettify/prettify.js',function(){
         prettyPrint();
     });
 
