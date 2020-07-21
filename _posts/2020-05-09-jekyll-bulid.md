@@ -2,7 +2,7 @@
 layout: post
 title: Jekyll博客搭建
 description: Jekyll博客搭建
-category: [建站,Jekyll]
+category: [建站]
 ---
 Jekyll 是一款生成静态网站的工具，主题易于定制，自由度很高，也有很多优秀的主题。也可以搭配很多插件，让静态博客拥有更丰富的功能。并且Github支持Jekyll建站并发布，没有主机域名也可以拥有自己的网站。  
 我的常用环境是Windows，并且linux 构建jekyll比较简单，所以，这里只说明Windows下安装Jekyll

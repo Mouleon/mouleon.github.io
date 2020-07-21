@@ -54,3 +54,6 @@ if __name__ == "__main__":
     get_wallpaper()
 
 ```  
+## 壁纸API
+如果只是使用必应壁纸作为首页背景，可以直接使用服务[https://www.oneneko.com/bing](https://www.oneneko.com/bing)  
+详细参见[必应壁纸API](/bing-api.html)
