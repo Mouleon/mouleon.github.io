@@ -637,7 +637,7 @@ li.L9 {
 .footer-wrapper{
   background-color: #fff;
   height: 80px;
-  box-shadow: 0px 0px 1px 1px rgb(0,0,0,0.1);
+  box-shadow: 0px 0px 0px 0px rgb(0,0,0,0.1);
 }
 
 .footer_contaniner{
@@ -713,7 +713,7 @@ a#indexPage {
 .navbar_menu a{
   float:right;
   text-align: center;
-  width:8vw;
+  width:6.5vw;
   height: 50px;
 }
 
