@@ -11,6 +11,10 @@ paginate: 10
 paginate_path: "page/:num/"
 plugins: [jekyll-paginate]
 
+kramdown:
+  auto_ids: true
+  input: GFM
+
 highlighter: Rouge
 since: 2020
 
