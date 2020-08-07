@@ -1,0 +1,4 @@
+tUser-agent: MJ12bot
+User-agent: Dotbot
+User-agent: ChinaClaw
+Disallow: /

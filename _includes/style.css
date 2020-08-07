@@ -172,6 +172,9 @@ a.external:hover {
     height: 200px;
     max-width: none;
   }
+  .header_wrapper{
+    display: none;
+  }
 }
 .index-wrapper .info-card {
   position: absolute;
@@ -357,7 +360,7 @@ table td,th {
 }
 
 .post-wrapper p {
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   line-height: 1.8em;
 }
 .post-wrapper code {
@@ -631,7 +634,30 @@ li.L9 {
   margin-top: 10px;
   float:right;
 }
+.post-left p{
+  margin-bottom: 5px;;
+}
+.post-right p{
+  margin-bottom: 5px;
+}
+@media screen and (max-width: 500px) {
+  .post-left{
+    margin-top: 10px;
+    width:100%;
+    float: left;
+  }
+  
+  .post-right{
+    float:left;
+    width:100%;
+  }
+}
+@media screen and (max-width: 500px){
 
+  .footer-wrapper{
+    margin-top: 90px;;
+  }
+}
 
 /* 页脚 */
 .footer-wrapper{
@@ -696,8 +722,7 @@ a#indexPage {
   display: inline;
 }
 .navbar_menu a:hover{
-  border-bottom: solid blue 1px;
-  margin: 0 auto;
+  color: cornflowerblue;
 }
 .nav_container a{
   color:#111111;
@@ -713,8 +738,16 @@ a#indexPage {
 .navbar_menu a{
   float:right;
   text-align: center;
-  width:6.5vw;
+  margin-left: 2vw;
+  margin-right: 1vw;
   height: 50px;
+}
+
+@media screen and (max-width:500px){
+  .navbar_menu a{
+    margin-left: 1vw;
+    margin-right: 0vw;
+  }
 }
 
 /* Top导航 */
