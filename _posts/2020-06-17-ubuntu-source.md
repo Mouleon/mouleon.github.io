@@ -72,3 +72,11 @@ index-url = https://mirrors.aliyun.com/pypi/simple/
 [install]
 trusted-host = mirrors.aliyun.com
 ```
+## gem源
+```
+gem source -l #查看源
+gem source rm 地址 #删除原有源
+gem source --add 地址 #添加源
+```
+目前国内能访问的源：
+`https://gems.ruby-china.com`
