@@ -1,0 +1,294 @@
+---
+layout: post
+title: C++ 回调函数
+description: C++ 回调函数
+category: [C++]
+---
+回调函数就是一个普通的函数，使用时，程序将回调函数作为参数传入另一个函数中，在需要的时候调用。  
+`If you call me,I will call you back`，这里就类似于回调函数的应用。  
+回调函数常用于异步数据的传递，比如一个项目需要不断获取底层的数据或者耗时比较长，这里可以使用线程通信来实现传输数据，但是对于此例，数据是单向的，所以可以使用回调函数，有数据就调用返回
+回调函数也是普通函数
+首先明确一个概念，回调函数也是普通函数，而不是什么神秘的东西。至于为什么叫回调函数，是因为程序通过参数把该函数的函数指针传递给了其它函数，在那个函数里面调用这个函数指针就相当于调用这个函数，这样的过程就叫回调，而被调用的函数就叫回调函数。看得出来，回调的本质是函数指针传递，所以想要理解回调机制，先要理解函数指针。
+
+C回调函数
+C++回调函数扩展自C回调函数，要想理解C++回调函数，先要理解C回调函数。我们通过一个实例来讲解C回调函数的使用方法。
+————————————————
+
+复制代码
+//callbackTest.c
+//1.定义函数onHeight（回调函数）
+//@onHeight 函数名
+//@height   参数
+//@contex   上下文
+void onHeight(double height, void* contex)
+{
+    sprint("current height is %lf",height);
+}
+
+//2.定义onHeight函数的原型
+//@CallbackFun 指向函数的指针类型
+//@height      回调参数，当有多个参数时，可以定义一个结构体
+//@contex      回调上下文，在C中一般传入nullptr，在C++中可传入对象指针
+typedef void (*CallbackFun)(double height, void* contex);
+
+//3.定义注册回调函数
+//@registHeightCallback 注册函数名
+//@callback             回调函数原型
+//@contex               回调上下文
+void registHeightCallback(CallbackFun callback, void* contex)
+{
+    double h=100;
+    callback(h,nullptr);
+}
+
+//4.main函数
+void main()
+{
+    //注册onHeight函数，即通过registHeightCallback的参数将onHeight函数指针
+    //传入给registHeightCallback函数，在registHeightCallback函数中调用
+    //callback就相当于调用onHeight函数。
+    registHeightCallback(onHeight，nullptr);
+}
+复制代码
+程序的运行结果是：
+current height is 100
+很多时候，注册的时候并不调用回调函数，而是在其他函数中调用，那我们可以定义一个CallbackFun全局指针变量，在注册的时候将函数指针赋给它，在要调用的调用它。如
+
+复制代码
+//定义全局指针变量
+CallbackFun* m_pCallback;
+//定义注册回调函数
+void registHeightCallback(CallbackFun callback, void* contex)
+{
+    m_pCallback = callback;
+}
+//定义调用函数
+void printHeightFun(double height)
+{
+    m_pCallback(height,nullptr);
+}
+//main函数
+void main()
+{
+    //注册回调函数onHeight
+    registHeightCallback(onHeight,nullptr);
+    //打印height
+    double h=99;
+    printHeightFun(99);
+}
+复制代码
+程序的运行结果是：
+current height is 99
+
+ 
+
+C++回调函数
+C++回调函数扩展自C，与C略有不同的是，C++可以使用全局函数和静态函数作为回调函数。考虑到全局函数会破坏封装性，所以一般都用静态成员函数。故除了理解函数指针，还要理解静态成员函数，具体一点是在静态成员函数中访问非静态成员函数的方法，因为我们很可能需要获取静态成员函数中的数据。
+
+使用场景描述
+比如说你使用了别人提供的sdk，这个sdk可能来自供应商，也有可能来自你的同事，他就提供给你一个注册回调函接口，比如就下面这个，你可以通过回调函数获取到height（某种传感器的实时返回的数据），你要怎么做？
+
+C++回调函数定义
+————————————————
+
+复制代码
+//CallbackFun类型
+//@CallbackFun 指向函数的指针类型
+//@height      回调参数，当有多个参数时，可以定义一个结构体
+//@contex      回调上下文，在C中一般传入nullptr，在C++中可传入对象指针
+typedef void (*CallbackFun)(double height, void* contex);
+
+//注册回调函数接口
+//@registHeightCallback 注册函数名
+//@callback             回调函数原型
+//@contex               回调上下文
+void registHeightCallback(CallbackFun callback, void* contex)
+复制代码
+首先，你要定义一个静态成员函数并注册。
+
+复制代码
+//sensorTest.cpp
+//接收数据类class Sensor
+class Sensor{
+public:
+    Sensor(){}
+    ~Sensor(){}
+    //定义回调函数onHeight
+    static void onHeight(double height, void* contex)
+    {
+        cout << "current height is  " << height << endl;
+    }
+    //定义注册回调函数
+    void registCallback()
+    {
+        registHeightCallback(onHeight, this);
+    }
+};
+
+//main 函数
+void main()
+{
+    Sensor sens;
+    sens.registCallback();
+}
+复制代码
+运行程序，我们发现控制台一直在打印
+current height is **
+说明我们的回调函数正确实现了。到这一步不难，只要掌握基本的回调函数概念都能实现。
+现在我们有这样一种情况，我们有另外一个类，要在这个类里面实时打印获取的数据，要怎么做呢？
+
+静态成员函数访问非静态成员函数的方法
+我们知道静态成员函数中是只能出现静态变量和静态函数的，但是有些时候真的需要访问非静态成员函数或变量，比如我上面说的那种情况。让我们先来实现对同一个类中的非静态成员函数的访问。
+修改class Sensor如下
+————————————————
+
+复制代码
+//接收数据类class Sensor
+class Sensor{
+public:
+    Sensor(){}
+    ~Sensor(){}
+    //定义回调函数onHeight
+    static void onHeight(double height, void* contex)
+    {
+        //cout << "current height is  " << height << endl;
+        Sensor* sen = (Sensor*)contex;
+        if(sen)  //注意判断sen是否有效
+            sen->getHeight(height);
+    }
+    //定义注册回调函数
+    void registCallback()
+    {
+        registHeightCallback(onHeight, this);
+    }
+    //新增的成员函数
+    void getHeight(double height)
+    {
+        cout << "current height is  " << height << endl;
+    }
+};
+复制代码
+如此修改之后，得到与修改前一样的效果（实时打印height），关键点在于注册回调函数的时候将Sensor对象的指针传给了contex，在回调函数中又将contex转换为Sensor对象指针，所以能调用普通函数。
+同理，如果注册时传入某一个对象的指针，就可以在回调函数中对该对象进行操作，这就是我们可以在一个对象中回调另一个对象的思想。
+
+回调对象
+现在开始解决之前提出的问题，本质是不变的，回调是指针传递，可以是函数指针，也可以是对象指针。
+————————————————
+
+复制代码
+//先定义一个类class DataPrint
+//打印数据类class DataPrint
+class DataPrint{
+public:
+    DataPrint(){}
+    ~DataPrint(){}
+    void printHeight(double height)
+    {
+        cout << "print height is " << height << endl;
+    }
+};
+
+//要在类Sensor中增加DataPrint的指针和一个DataPrint指针赋值函数，class Sensor修改为
+//接收数据类class Sensor
+class Sensor{
+public:
+    Sensor(){}
+    ~Sensor(){}
+    //定义回调函数onHeight
+    static void onHeight(double height, void* contex)
+    {
+        DataPrint* dp = (DataPrint*)contex;
+        if(dp)  //注意判断dp是否有效
+            dp->printHeight(height);
+    }
+    //定义注册回调函数
+    void registCallback()
+    {
+        registHeightCallback(onHeight, m_pDataPrint );
+    }
+    //新增的成员函数
+    void getHeight(double height)
+    {
+        //cout << "current height is  " << height << endl;
+    }
+    void setDataPrint(DataPrint* dp)
+    {
+        m_pDataPrint = dp;
+    }
+private:
+    DataPrint* m_pDataPrint;
+};
+
+//main主函数
+void main()
+{
+    DataPrint* dp=new DataPrint();
+    Sensor* sens=new Sensor();
+    //注意这两句的顺序不能颠倒
+    sens->setDataPrint(dp);
+    sens->registCallback();
+}
+复制代码
+这样就能实现在另一个类中取得回调函数的数据，如果无法保证DataPrint的实例化一定在Sensor之前，我们可以这样做
+
+复制代码
+//先定义一个类class DataPrint
+//打印数据类class DataPrint
+class DataPrint{
+public:
+    DataPrint(){}
+    ~DataPrint(){}
+    void printHeight(double height)
+    {
+        cout << "print height is " << height << endl;
+    }
+};
+
+//要在类Sensor中增加DataPrint的指针和一个DataPrint指针赋值函数，class Sensor修改为
+//接收数据类class Sensor
+class Sensor{
+public:
+    Sensor(){}
+    ~Sensor(){}
+    //定义回调函数onHeight
+    static void onHeight(double height, void* contex)
+    {
+        Sensor* sen= (Sensor*)contex;
+        if(sen)  //注意判断sen是否有效
+            sen->getHeight(height);
+    }
+    //定义注册回调函数
+    void registCallback()
+    {
+        registHeightCallback(onHeight, m_pDataPrint );
+    }
+    //新增的成员函数
+    void getHeight(double height)
+    {
+        if(m_pDataPrint )
+            m_pDataPrint ->printHeight(height);
+    }
+    void setDataPrint(DataPrint* dp)
+    {
+        m_pDataPrint = dp;
+    }
+private:
+    DataPrint* m_pDataPrint;
+};
+
+//main主函数
+void main()
+{
+    DataPrint* dp=new DataPrint();
+    Sensor* sens=new Sensor();
+    //注意这两句的顺序可以颠倒
+    sens->setDataPrint(dp);
+    sens->registCallback();
+}
+复制代码
+两个的区别是一个直接注册指定类的对象指针，另一个注册当前类的对象指针，间接调用另一个类的对象指针。
+
+更复杂的讨论
+刚才讨论的问题稍微复杂一点了，不过应该也容易理解，但是我们在实际项目中遇到的情况可能比这个复杂。比如在有层次的软件工程中，回调函数在底层，显示数据的类在上层，我们要如何把底层的数据显示到上层去？容易想到的是上层调用底层，如开个timer刷新，但这是不对的，你无法做到实时调用，你需要的是一个异步的机制，即底层一发生上层就能接收到。
+怎么做呢？还是一样的道理，把上层的类的对象指针传给底层，这时底层需要包含上层的头文件，但这是不对的，上层已经包含了底层的头文件，它们不能互相包含，如何解决这个问题？那就要用到C++继承的特性，首先在底层定义一个基类，然后在上层继承它，在上层实例化这个继承类后，将其指针设置给底层，底层对该指针的操作就是对继承类对象的操作，以此实现数据的传递。
+这里就不贴代码了，思想是这样的，很多情况下需要实际问题实际分析，欢迎讨论。
