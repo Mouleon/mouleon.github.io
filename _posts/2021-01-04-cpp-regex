@@ -1,0 +1,14 @@
+---
+layout: post
+title: C++正则表达式(regex)
+description: C++正则表达式(regex)
+category: [C++,工具]
+---
+## regex_match
+全文匹配，即全部匹配
+## regex_search
+寻找匹配的子串
+## regex_replace
+替换符合条件的字串
+## 参考
+[标准头文件<regex>](https://zh.cppreference.com/w/cpp/header/regex)
