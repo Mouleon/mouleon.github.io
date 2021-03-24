@@ -1,0 +1,26 @@
+---
+layout: post
+title: UNIX网络编程卷1-第三章笔记
+description: UNIX网络编程卷1-第三章笔记 套接字编程简介
+category: [网络编程]
+---
+## 套接字地址结构
+### IPv4套接字地址结构
+定义在`<netinet/in.h>`下面是它的POSIX定义
+```
+struct in_addr{
+    in_addr_t s_addr;               //32位IPv4地址
+}
+struct socket_in{
+    uint_t          sin_len;
+    sa_family_t     sin_family;     //AF_INET
+    in_port_t       sin_port;       //16位TCP或UDP端口号
+
+    struct  in_addr sin_addr;       //32位IPv4地址
+
+    char            sin_zero[8];    //未使用
+}
+```
+![不同套接字地址结构比较](/static/image/2021/03/different_socket.jpg)  
+## 值-结果参数
+![地址转换函数](/static/image/2021/03/socket_trans_function.jpg)
