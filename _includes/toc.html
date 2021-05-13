@@ -1,14 +1,67 @@
 <ul id="_toc">
-  <script src="https://libs.baidu.com/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    if(!window.jQuery) {
-      document.write('<script src="https://libs.baidu.com/jquery/1.7.1/jquery.min.js"}}><\/script>')
+  <script>
+    function getHeaders(tagNames, ignore) {
+      let tags = tagNames.split(",");
+      return $(tagNames.toString()).filter("[id]").not(ignore).map(function () {
+        return {
+          level: tags.indexOf($(this).prop("tagName")),
+          link: "#" + $(this).attr("id"),
+          text: $(this).text()
+        };
+      });
+    }
+
+    function nestHeaders(headers) {
+      let base = [];
+      let buffer = { level: 0, list: base, prev: undefined };
+      headers.each(function (_, header) {
+        if (header.level >= 0) {
+          while (header.level > buffer.level) {
+            let newBuffer = { level: buffer.level + 1, list: [], prev: buffer };
+            buffer = newBuffer;
+          }
+
+          while (header.level < buffer.level) {
+            buffer.prev.list.push(buffer.list);
+            buffer = buffer.prev;
+          }
+
+          buffer.list.push(header);
+        }
+      });
+
+      while (buffer.prev != undefined) {
+        buffer.prev.list.push(buffer.list);
+        buffer = buffer.prev;
+      }
+
+      return base;
+    }
+
+    function genToc(base, nestedHeaders, level) {
+      nestedHeaders.forEach(function (elem) {
+        if (elem instanceof Array) {
+          let ul = $("<ul/>");
+          genToc(ul, elem, level + 1);
+          base.append(ul);
+        } else {
+          base.append($("<li/>").append($("<a/>", {
+            href: elem.link,
+            text: elem.text,
+            id: "toc" + level + ""
+          })));
+        }
+      });
+    }
+
+    function toc(base, tagNames, ignore) {
+      genToc(base, nestHeaders(getHeaders(tagNames, ignore)), 0);
+      //scrollToc(nestHeaders(getHeaders(tagNames, ignore)));
     }
   </script>
-  <script src="{{site.cdn}}/static/js/toc.js"></script>
   <script>
-    let tags = {%if include.tags%}"{{include.tags}}"{%else%}"H1,H2"{%endif%};
-    let ignore = {%if include.ignore%}"{{include.ignore}}"{%else%}''{%endif%};
+    let tags = {%if include.tags %}"{{include.tags}}"{%else%} "H1,H2"{% endif %};
+    let ignore = {%if include.ignore %}"{{include.ignore}}"{%else%} ''{% endif %};
     $(document).ready(function () {
       toc($("#_toc"), tags, ignore);
     });

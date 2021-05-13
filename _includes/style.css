@@ -319,9 +319,9 @@ a.external:hover {
 .post-wrapper .post-title,
 .post-wrapper .post-title a {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: bold;
     margin-bottom: 6px;
-    color: #666;
+    color: #262626;
     text-align: center;
     word-wrap: break-word;
 }
@@ -341,8 +341,9 @@ a.external:hover {
 .post-wrapper .post-date {
     text-align: center;
     color: #999;
+    margin-top: 20px;
     margin-bottom: 60px;
-    font-size: 14px;
+    font-size: 8px;
 }
 
 @media screen and (max-width: 700px) {
@@ -408,7 +409,8 @@ th {
 
 .post-wrapper h2 {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: bold;
+    letter-spacing: 0.02em;
     margin-bottom: 20px;
     border-bottom: 2px solid #eee;
 }
@@ -424,7 +426,9 @@ h6 {
 
 .post-wrapper p {
     margin-bottom: 28px;
-    line-height: 1.8em;
+    line-height: 1.74em;
+    letter-spacing: 0.05em;
+    white-space: pre-wrap;
 }
 
 .post-wrapper code {
@@ -879,8 +883,8 @@ a#indexPage {
 
 .top_e {
     position: fixed;
-    right: 45px;
-    bottom: 150px;
+    right: 245px;
+    bottom: 100px;
     /*background:rgba(204,200,255,0.6);*/
     border-radius: 5px;
     cursor: pointer;
@@ -1010,9 +1014,9 @@ nav.pagination {
     margin-bottom: 10px;
 }
 
-// ------------------------------
+/* ------------------------------
 // categories
-// ------------------------------
+// ------------------------------*/
 .categoriesbody {
     margin: 0 auto;
     width: 700px;

@@ -35,13 +35,29 @@ I/O复用典型使用在下列网络应用组合：
 
 ![img](/static/image/2021/04/IOcompare.jpg)
 ## select 函数
+该函数允许进程指示内核等待多个事件中的任何一个发生，并只在有一个或多个事件发生或经历一段指定的时间后才唤醒它
 ```
 #include <sys/select.h>
 #include <sys/time.h>
 
 int select(int maxfdpl, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timeval *timeout);
 // 返回，若有就绪描述符则为其数目，若超时则为0，若出错则为-1
+```  
+`timeout`参数：它告知内核等待所指定描述符中的任何一个就绪可花多长时间，其timeval结构用于指定这段时间的秒数和微秒数
 ```
+struct timeval{
+    long tv_sec;    //秒
+    long tv_usec;   //微秒
+}
+```
+该参数有以下三种可能：  
+* 永远等下去：仅在有一个描述符准备好I/O时才返回。因此将该参数置为空指针
+* 等待一段固定时间：在有一个描述符准备好I/O时返回，但是不超过该参数指定的时间
+* 根本不等待：检查描述符后立即返回，这称为轮询。为此该参数指定时间应为0  
+ 
+中间的三个参数readset、writeset和exceptset指定我们要让内核测试读、写和异常条件的描述符。 
+maxfdpl参数指定待测试的描述符个数，它的值是待测试的最大描述符加1
+
 ## shutdown函数
 终止网络连接的通常方法是调用close函数。不过close有两个限制，去可以使用shutdown来避免。
 * ① close吧面舒服的应用计数减一，尽在该计数变为0时才关闭套接字。
@@ -55,6 +71,3 @@ howto参数
 SHUT_RD 关闭连接的读这一半————套接字不再有数据可接收，而且套接字接收缓冲区的现有数据都被丢弃  
 SHUT_WR 关闭连接的写这一半————对于TCP套接字，这成为`半关闭`  
 SHUT_RDWR 连接的读半部和写半部都关闭  
-```
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-```

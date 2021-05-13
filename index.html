@@ -26,4 +26,7 @@ title: 首页
     </div>
   </div>
   {% include footer.html %}
+  {% for post in paginator.posts %}
+        {{ post.url }}
+        {% endfor %}
 </body>
