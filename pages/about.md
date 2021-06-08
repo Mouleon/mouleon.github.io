@@ -14,4 +14,4 @@ layout: about
 
 ## Contact  
 GitHub : [@oneNeko](https://www.github.com/oneNeko)  
-留言板 ：[吐个槽](https://support.qq.com/products/178880?)
+留言板 ：[兔小巢](https://support.qq.com/products/178880?)

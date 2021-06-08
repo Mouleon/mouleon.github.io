@@ -103,3 +103,20 @@ sudo rm /etc/mysql/ -R
 sudo apt-get autoremove mysql* --purge
 sudo apt-get remove apparmor
 ```
+## 使用docker并持久化数据
+将mysql在docker容器中进行部署，然后使用数据卷挂载的方式将mysql的数据持久化到宿主机
+拉取mysql的镜像(默认最新)
+```
+docker pull mysql
+```
+启动容器
+```
+docker run --name mysql -d -p 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+--name mysql                                     #  对容器的命名
+-d                                                              #后台运行
+-p 3306:3306                                           #对外暴露端口号3306
+-v /home/mysql/conf:/etc/mysql/conf.d     #配置文件挂载到当前宿主机的/home/mysql/conf
+-v /home/mysql/data:/var/lib/mysql            #数据挂载到当前宿主机的 /home/mysql/data
+-e MYSQL_ROOT_PASSWORD=123456    #设置mysql的root用户的密码是：123456
+```

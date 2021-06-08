@@ -1,32 +1,28 @@
+--- 
+layout: default 
+title: 首页 
 ---
-layout: default
-title: 首页
----
+
 <body>
-  <div class="index-wrapper">
-    <div class="aside">
-      <div class="info-card">
-        <h1>oneNeko</h1>
-        <a href="https://www.github.com/oneNeko/" target="_blank"><img src="/github.ico" alt="" width="25"/></a>
-      </div>
-      <div id="particles-js">
-        <div id="particles-top"></div>
-      </div>
+    <div class="index-wrapper">
+        <div class="aside">
+            <div class="info-card">
+                <h1>oneNeko</h1>
+                <a href="https://www.github.com/oneNeko/" target="_blank"><img src="/github.ico" alt="" width="25" /></a>
+            </div>
+            <div id="particles-js">
+                <div id="particles-top"></div>
+            </div>
+        </div>
+        <div class="index-content">
+            <ul class="artical-list">
+                {% for post in paginator.posts %}
+                <li>
+                    <a href="{{ post.url }}" class="title">{{ post.title }}</a>
+                    <div class="title-desc">{{ post.description }}</div>
+                </li>
+                {% endfor %} {% include pagination.html %}
+            </ul>
+        </div>
     </div>
-    <div class="index-content">
-      <ul class="artical-list">
-        {% for post in paginator.posts %}
-        <li>
-          <a href="{{ post.url }}" class="title">{{ post.title }}</a>
-          <div class="title-desc">{{ post.description }}</div>
-        </li>
-        {% endfor %}
-				{%  include pagination.html %}
-      </ul>
-    </div>
-  </div>
-  {% include footer.html %}
-  {% for post in paginator.posts %}
-        {{ post.url }}
-        {% endfor %}
 </body>
